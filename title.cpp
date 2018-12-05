@@ -2,8 +2,9 @@
 
 Title::Title()
 {
-    name = "";
-    genre = "";
-    descr = "";
-    image.load("no_image.png");
+    name_ = "";
+    genre_ = "";
+    descr_ = "";
+    image_.load("no_image.png");
+    is_admin_ = false;
 }
