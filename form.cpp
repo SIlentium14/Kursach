@@ -5,7 +5,6 @@ Form::Form(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form)
 {
-
     ui->setupUi(this);
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -13,6 +12,7 @@ Form::Form(QWidget *parent) :
     scrollArea->resize(400,300);
     scrollArea->setWidgetResizable(true);
     scrollArea->setWidget(ui->gridLayoutWidget);
+
 }
 
 Form::~Form()
@@ -28,16 +28,20 @@ void Form::on_pushButton_clicked()
 
 void Form::on_pushButton_2_clicked()
 {
+   add_box();
+}
+void Form::add_box()
+{
     QVBoxLayout *vbox = new QVBoxLayout;
     QLabel *s = new QLabel;
     s->setText("kaka");
     vbox->addWidget(s,1);
-    ss = new QGroupBox;
-    ss->setFixedHeight(100);
-    ss->setFixedWidth(100);
-    ss->setLayout(vbox);
-    ss->setTitle("Title");
-    ui->gridLayout->addWidget(ss,row_count,column_count++);
+    stand_box = new QGroupBox;
+    stand_box->setFixedHeight(100);
+    stand_box->setFixedWidth(100);
+    stand_box->setLayout(vbox);
+    stand_box->setTitle("Title");
+    ui->gridLayout->addWidget(stand_box,row_count,column_count++);
     box_checker();
 }
 void Form::box_checker()

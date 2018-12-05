@@ -9,6 +9,7 @@
 #include <vector>
 #include <QLabel>
 #include <QScrollArea>
+#include <QPushButton>
 using namespace std;
 namespace Ui {
 class Form;
@@ -21,8 +22,8 @@ class Form : public QWidget
 public:
     explicit Form(QWidget *parent = nullptr);
     ~Form();
-    QGroupBox *ss;
-    void box_checker();
+
+
 signals:
     void signal();
 
@@ -32,6 +33,9 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
+    void box_checker();
+    void add_box();
+    QGroupBox *stand_box;
     Ui::Form *ui;
     int column_count=0;
     int row_count=0;
