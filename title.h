@@ -2,25 +2,30 @@
 #define TITLE_H
 #include <QString>
 #include <QPixmap>
-
+#include <QGroupBox>
+#include <QPushButton>
+#include <QLabel>
+#include <QVBoxLayout>
 class Title
 {
 public:
-    Title();
-    Title(QString,QString,QString,QPixmap);
+    Title(bool is_admin);
     ~Title() = default;
     void create();
     void delete_element();
-    void show_all();
     void show_one();
+    QGroupBox* get_adding_box();
 private:
     QPixmap image_;
     QString name_;
     QString genre_;
     QString descr_;
     bool is_admin_;
+    // здесь файл данных и файл картинок
 
     void edit();
+
+    QGroupBox *box_;
 };
 
 #endif // TITLE_H

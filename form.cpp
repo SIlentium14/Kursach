@@ -9,9 +9,10 @@ Form::Form(QWidget *parent) :
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->resize(400,300);
+    scrollArea->resize(650,600);
     scrollArea->setWidgetResizable(true);
     scrollArea->setWidget(ui->gridLayoutWidget);
+    // заполнение вектора
 }
 Form::~Form()
 {
@@ -30,23 +31,28 @@ void Form::on_pushButton_2_clicked()
 }
 void Form::add_box()
 {
-    QVBoxLayout *vbox = new QVBoxLayout;
-    QLabel *s = new QLabel;
-    s->setText("kaka");
+//    QVBoxLayout *vbox = new QVBoxLayout;
+//    QLabel *s = new QLabel;
+//    s->setText("kaka");
 
-    QPushButton *but = new QPushButton(this);
-    vbox->addWidget(s,1);
-    vbox->addWidget(but);
-
-    stand_box = new QGroupBox;
-    stand_box->setFixedHeight(100);
-    stand_box->setFixedWidth(100);
-    stand_box->setLayout(vbox);
-    stand_box->setTitle("Title");
-    stand_box->setMouseTracking(true);
-    stand_box->setFocusPolicy(Qt::ClickFocus);
+//    QPushButton *but = new QPushButton(this);
+//    but->setFixedHeight(140);
+//    but->setFixedWidth(160);
+//    s->setFixedHeight(40);
+//    s->setFixedWidth(160);
+//    vbox->addWidget(but,1);
+//    vbox->addWidget(s,1);
+//    stand_box = new QGroupBox;
+//    stand_box->setFixedHeight(200);
+//    stand_box->setFixedWidth(200);
+//    stand_box->setLayout(vbox);
+//   // stand_box->setTitle("Title");
+//    stand_box->setMouseTracking(true);
+//    stand_box->setFocusPolicy(Qt::ClickFocus);
+    Title a(1);
+    stand_box = a.get_adding_box();
     ui->gridLayout->addWidget(stand_box,row_count,column_count++);
-    connect(stand_box,SIGNAL(clicked()),this,SLOT(box_click()));
+   // connect(stand_box,SIGNAL(clicked()),this,SLOT(box_click()));
     box_checker();
 }
 void Form::box_checker()
@@ -58,8 +64,3 @@ void Form::box_checker()
     }
 
 }
-void Form::box_click()
-{
-    ui->label->setText("zalupa");
-}
-int Form::i =0;
