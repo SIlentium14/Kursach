@@ -31,29 +31,35 @@ void Form::on_pushButton_2_clicked()
 }
 void Form::add_box()
 {
-//    QVBoxLayout *vbox = new QVBoxLayout;
-//    QLabel *s = new QLabel;
-//    s->setText("kaka");
-
-//    QPushButton *but = new QPushButton(this);
-//    but->setFixedHeight(140);
-//    but->setFixedWidth(160);
-//    s->setFixedHeight(40);
-//    s->setFixedWidth(160);
-//    vbox->addWidget(but,1);
-//    vbox->addWidget(s,1);
-//    stand_box = new QGroupBox;
-//    stand_box->setFixedHeight(200);
-//    stand_box->setFixedWidth(200);
-//    stand_box->setLayout(vbox);
-//   // stand_box->setTitle("Title");
-//    stand_box->setMouseTracking(true);
-//    stand_box->setFocusPolicy(Qt::ClickFocus);
-    Title a(1);
-    stand_box = a.get_adding_box();
-    ui->gridLayout->addWidget(stand_box,row_count,column_count++);
-   // connect(stand_box,SIGNAL(clicked()),this,SLOT(box_click()));
+//    Title* a = new Title;
+//    stand_box = a->get_adding_box();
+//    ui->gridLayout->addWidget(stand_box,row_count,column_count++);
+//    One_element *send = new One_element;
+//    *send = a;
+//    connect(a,&One_element::signal,this,&One_element::show);
+//    //send->show();
+    box_ = new QGroupBox();
+    QVBoxLayout *vbox = new QVBoxLayout;
+    QLabel *s = new QLabel;
+    s->setText("");
+    QPushButton *but = new QPushButton();
+    but->setFixedHeight(150);
+    but->setFixedWidth(150);
+    but->setCursor(Qt::PointingHandCursor);
+    QPixmap m(":/new/prefix1/no_image.png");
+    but->setIcon(m);
+    but->setIconSize(QSize(150,150));
+    s->setFixedHeight(40);
+    s->setFixedWidth(160);
+    vbox->addWidget(but,1);
+    vbox->addWidget(s,1);
+    box_ = new QGroupBox;
+    box_->setFixedHeight(200);
+    box_->setFixedWidth(200);
+    box_->setLayout(vbox);
+    ui->gridLayout->addWidget(box_,row_count,column_count++);
     box_checker();
+    connect(but,SIGNAL(clicked()),this,SLOT(element_clicked()));
 }
 void Form::box_checker()
 {
@@ -62,5 +68,12 @@ void Form::box_checker()
         column_count=0;
         row_count++;
     }
+
+}
+
+void Form::element_clicked()
+{
+    Title* temp = (Title*) sender();
+
 
 }

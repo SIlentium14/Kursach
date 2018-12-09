@@ -3,16 +3,13 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QWidget>
-//#include <QGroupBox>
 #include <QGridLayout>
 #include <QTextEdit>
 #include <vector>
-//#include <QLabel>
 #include <QScrollArea>
-//#include <QPushButton>
 #include <QListView>
 #include <QListWidget>
-#include "title.h"
+#include "one_element.h"
 using namespace std;
 namespace Ui {
 class Form;
@@ -34,10 +31,11 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void element_clicked();
 private:
     void box_checker();
     void add_box();
-    QGroupBox *stand_box;
+    QGroupBox *box_;
     Ui::Form *ui;
     int column_count=0;
     int row_count=0;

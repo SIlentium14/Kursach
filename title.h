@@ -1,5 +1,6 @@
 #ifndef TITLE_H
 #define TITLE_H
+#include <QDialog>
 #include <QString>
 #include <QPixmap>
 #include <QGroupBox>
@@ -9,7 +10,7 @@
 class Title
 {
 public:
-    Title(bool is_admin);
+    Title(bool is_admin = false);
     ~Title() = default;
     void create();
     void delete_element();
