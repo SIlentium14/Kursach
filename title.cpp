@@ -9,11 +9,10 @@ Title::Title(bool is_admin) : is_admin_(is_admin)
     box_ = new QGroupBox;
     box_->setFixedHeight(200);
     box_->setFixedWidth(200);
-    button_ = new DynamicButton(0); // Вместо 0 - индекс текущего i-го элемента вектора тайтлов
+    button_ = new DynamicButton(0);
     button_->setFixedHeight(150);
     button_->setFixedWidth(150);
     button_->setCursor(Qt::PointingHandCursor);
-    //QPixmap m(":/new/prefix1/no_image.png");
     button_->setIcon(image_);
     button_->setIconSize(QSize(150,150));
 
@@ -63,7 +62,6 @@ QGroupBox* Title::get_adding_box()
     box_->setFixedHeight(200);
     box_->setFixedWidth(200);
     box_->setLayout(vbox);
-    // stand_box->setTitle("Title");
     box_->setMouseTracking(true);
 
     return  box_;

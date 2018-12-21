@@ -13,6 +13,7 @@ Form::Form(bool root,QWidget *parent) :
     {
         ui->pushButton_2->hide();
         ui->pushButton_3->hide();
+        ui->pushButton_4->hide();
     }
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -99,7 +100,16 @@ void Form::add_box()
     vbox->addWidget(all_.back().get_button(),1);
     QLabel* name_label = new QLabel();
     name_label->setText(all_.back().get_name());
-    vbox->addWidget(name_label,1);
+    QScrollArea *name_area = new QScrollArea;
+    name_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    name_area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    name_area->setWidgetResizable(false);
+    name_area->setFixedHeight(43);
+    name_area->setFixedWidth(150);
+    name_area->setWidget(name_label);
+
+    vbox->addWidget(name_area,1);
+    //vbox->addWidget(name_label,1);
     all_.back().set_layout(vbox);
     //if(deleting)
        // all_.back().get_box()->setCheckable(true);
@@ -196,4 +206,13 @@ void Form::on_pushButton_5_clicked()
 {
     qSort(all_.begin(),all_.end(),[]( Title &rhs, Title &lhs){return rhs.get_name() < lhs.get_name();});
     redrawind();
+}
+
+void Form::on_pushButton_4_clicked()
+{
+    adm = new Admin_pass();
+    adm->edit_pass();
+    connect(adm,&Admin_pass::true_signal,this,&Form::show);
+    adm->show();
+    hide();
 }

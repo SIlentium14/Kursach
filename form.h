@@ -12,6 +12,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include "one_element.h"
+#include "admin_pass.h"
 #include <algorithm>
 using namespace std;
 namespace Ui {
@@ -49,6 +50,8 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     QFile* data;
     QFile* data_picture;
@@ -60,6 +63,7 @@ private:
     int row_count=0;
     vector<Title> all_;
     bool is_admin_;
+    Admin_pass *adm;
 };
 
 #endif // FORM_H

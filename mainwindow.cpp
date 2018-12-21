@@ -6,11 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   /* _____It's work _____
-    QPixmap pic(":/new/prefix1/no_image.png");
-    QLabel *lab = new QLabel;
-    lab->setPixmap(pic.scaled(400,400,Qt::KeepAspectRatio));
-    lab->show(); */
+
 }
 
 MainWindow::~MainWindow()
@@ -20,9 +16,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    win = new Form(true);
-    connect(win,&Form::signal,this,&MainWindow::show);
-    win->show();
+    adm = new Admin_pass();
+    connect(adm,&Admin_pass::true_signal,this,&MainWindow::next);
+    adm->show();
     hide();
 }
 
@@ -32,4 +28,11 @@ void MainWindow::on_pushButton_2_clicked()
     connect(win,&Form::signal,this,&MainWindow::show);
     win->show();
     hide();
+}
+void MainWindow::next()
+{
+    adm->close();
+    win = new Form(true);
+    connect(win,&Form::signal,this,&MainWindow::show);
+    win->show();
 }

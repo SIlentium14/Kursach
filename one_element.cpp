@@ -7,6 +7,9 @@ One_element::One_element(Title *tit,bool root,QWidget *parent) :
 {
     ui->setupUi(this);
     //ui->name = tit->get_name();
+    ui->scrollArea_2->setWidget(ui->descr);
+    ui->scrollArea_3->setWidget(ui->name);
+    ui->scrollArea_4->setWidget(ui->genre);
     rec = tit;
     ui->name->setText("Название: "+rec->get_name());
     ui->genre->setText("Жанр: "+rec->get_genre());
