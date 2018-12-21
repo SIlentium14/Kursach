@@ -13,14 +13,10 @@
 class Title
 {
 public:
-    Title(bool is_admin = false);
+    Title();
     ~Title() = default;
     void set_data(QString,QString,QString);
-    void create();
-    void delete_element();
-    void show_one();
     void set_name(QString);
-    QGroupBox* get_adding_box();
     void set_layout(QVBoxLayout*);
     QGroupBox *get_box();
     DynamicButton* get_button();
@@ -28,8 +24,6 @@ public:
     QString get_genre() ;
     QString get_descr() ;
     QIcon get_icon();
-    bool roots();
-    void out_in_file(QFile*,QFile*);
     void set_but_ID(int ID);
     void set_genre(QString);
     void set_descr(QString);
@@ -44,10 +38,6 @@ private:
     QString genre_;
     QString descr_;
     bool is_admin_;
-    // здесь файл данных и файл картинок
-
-    void edit();
-
     QGroupBox *box_;
 };
 

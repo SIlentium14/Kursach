@@ -16,7 +16,7 @@ class Edit_Master : public QDialog
 public:
     explicit Edit_Master(Title *worker,QWidget *parent = nullptr);
     ~Edit_Master();
-void clearing_master();
+    void clearing_master();
 
 signals:
     void signal();

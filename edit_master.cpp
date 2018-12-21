@@ -9,7 +9,6 @@ Edit_Master::Edit_Master(Title* worker,QWidget *parent) :
     if((work_=worker) == NULL)
     {
         work_->set_data(" "," "," ");
-        //set_image
     }
     clearing_master();
     ui->name->setText(worker->get_name());
@@ -28,15 +27,11 @@ Edit_Master::~Edit_Master()
 
 void Edit_Master::on_Ok_clicked()
 {
-    // добавить вы уверены?
     QFile data("data.txt"), data_picture("pictures");
     data.open(QIODevice::Append | QIODevice::Text);
     data_picture.open(QIODevice::Append);
 
     QTextStream writeStream(&data);
-    //    writeStream<<ui->name->text()<<"\n"
-    //              <<ui->genre->toPlainText()<<"\n"
-    //             <<ui->descr->toPlainText()<<"\n";
     QString temp = ui->descr->toPlainText();
     temp.replace('\n',' ');
     writeStream<<temp<<'\n';

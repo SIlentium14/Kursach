@@ -1,14 +1,11 @@
 #ifndef FORM_H
 #define FORM_H
-#include <QTableView>
-#include <QTableWidget>
+
 #include <QWidget>
 #include <QGridLayout>
 #include <QTextEdit>
 #include <vector>
 #include <QScrollArea>
-#include <QListView>
-#include <QListWidget>
 #include <QFileDialog>
 #include <QFile>
 #include "one_element.h"

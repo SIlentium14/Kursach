@@ -6,7 +6,6 @@ One_element::One_element(Title *tit,bool root,QWidget *parent) :
     ui(new Ui::One_element)
 {
     ui->setupUi(this);
-    //ui->name = tit->get_name();
     ui->scrollArea_2->setWidget(ui->descr);
     ui->scrollArea_3->setWidget(ui->name);
     ui->scrollArea_4->setWidget(ui->genre);
@@ -17,7 +16,7 @@ One_element::One_element(Title *tit,bool root,QWidget *parent) :
     ui->image->setText("");
     ui->image->setFixedSize(QSize(200,200));
     ui->image->setIconSize(QSize(200,200));
-    ui->image->setIcon(tit->get_icon()); // Сделать картинку One_Element в Dynamicbutton
+    ui->image->setIcon(tit->get_icon());
     if(root)
     {
         delete_button = new QPushButton();
@@ -37,7 +36,7 @@ One_element::~One_element()
 }
 One_element* One_element::operator=(const Title* send)
 {
-    this->rec = new Title(send);
+    this->rec = new Title();
     *rec=*send;
     return this;
 }
@@ -49,7 +48,6 @@ void One_element::on_Ok_clicked()
 }
 void One_element::remove_title()
 {
-    //rec->delete_element();
     close();
     emit removing_signal();
 }

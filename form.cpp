@@ -32,7 +32,7 @@ void Form::add_master()
     data_picture->open(QIODevice::ReadOnly);
     if(!(data->isOpen() && data_picture->isOpen() ))
     {
-        //написать ошибку
+        QMessageBox::warning(this,"Открытие файла","Файл поврежден!");
     }
     all_.clear();
     while(!data->atEnd())
@@ -74,7 +74,7 @@ void Form::on_pushButton_clicked()
     close();
 }
 
-void Form::on_pushButton_2_clicked()  //не нужно
+void Form::on_pushButton_2_clicked()
 {
     data = new QFile("data.txt");
     data_picture = new QFile("pictures");
@@ -109,16 +109,10 @@ void Form::add_box()
     name_area->setWidget(name_label);
 
     vbox->addWidget(name_area,1);
-    //vbox->addWidget(name_label,1);
     all_.back().set_layout(vbox);
-    //if(deleting)
-       // all_.back().get_box()->setCheckable(true);
     ui->gridLayout->addWidget(all_.back().get_box(),row_count,column_count++);
     box_checker();
-
     connect(all_.back().get_button(),SIGNAL(clicked()),this,SLOT(element_clicked()));
-
-    // connect(temp->get_button(),SIGNAL(clicked()),this,SLOT(element_clicked(temp))); //передавать в метод этот title элемент (Борис урод)
 }
 void Form::box_checker()
 {
@@ -144,7 +138,7 @@ void Form::element_clicked()
 }
 void Form::image_clicked(Title *temp)
 {
-    One_element* wind = new One_element(temp,is_admin_); //new One_element(all_[temp->getID()]); или =all_[temp->getID()];  -- надо!!
+    One_element* wind = new One_element(temp,is_admin_);
     connect(wind,&One_element::signal,this,&Form::show);
     wind->show();
     hide();
