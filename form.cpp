@@ -30,10 +30,6 @@ void Form::add_master()
     data_picture = new QFile("pictures");
     data->open(QIODevice::ReadOnly);
     data_picture->open(QIODevice::ReadOnly);
-    if(!(data->isOpen() && data_picture->isOpen() ))
-    {
-        QMessageBox::warning(this,"Открытие файла","Файл поврежден!");
-    }
     all_.clear();
     while(!data->atEnd())
     {
